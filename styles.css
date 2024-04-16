@@ -1,0 +1,98 @@
+:root {
+    --w: calc(70vw / 6); /* Sets the width variable for the card */
+    --h: calc(70vh / 4); /* Sets the height variable for the card */
+}
+
+* {
+    transition: all 0.5s; /* Applies a transition effect to all elements */
+}
+
+h1{
+    font-family: calibri;
+    font-size: 60px;
+    font-weight: bold;
+    text-overflow: clip;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: rgb(221, 0, 255);
+    text-align:justify;
+    padding: 5px;
+    text-emphasis: 4xt;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    --webkit-perspective: 1000; /* Enables 3D space for the card */
+    background: url(imagen/fondo\ cartas\ -\ copia.jpg);
+    background-position:unset;
+    min-height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: calibri;
+}
+
+div {
+    display: inline-block;
+}
+
+.area-tarjeta, /* Container for the card */
+.tarjeta, /* The card itself */
+.cara { /* The front and back faces of the card */
+    cursor: pointer;
+    width: var(--w);
+    min-width: 100px;
+    height: var(--h);
+}
+
+.tarjeta {
+    position: relative;
+    transform-style: preserve-3d; /* Enables 3D transformation for the card */
+    animation: iniciar 5s; /* Applies an animation to the card */
+}
+
+.cara {
+    position: absolute;
+    backface-visibility: hidden; /* Hides the back face of the card */
+    box-shadow: inset 0 0 0 5px white; /* Adds a white inset shadow to the card faces */
+    font-size: 500%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trasera { /* The back face of the card */
+    background-color: lightcyan;
+    transform: rotateY(180deg); /* Rotates the back face 180 degrees */
+}
+
+.superior { /* The front face of the card */
+    background: linear-gradient(rgb(60, 0, 255), darkorange); /* Applies a gradient background */
+}
+
+.nuevo-juego { /* Button for starting a new game */
+    cursor: pointer;
+    background: linear-gradient(rgb(60, 0, 255), darkorange); /* Applies a gradient background */
+    padding: 20px;
+    border-radius: 50px;
+    border: white 5px solid;
+    font-size: 130%;
+    display: flex;
+
+
+}
+
+@keyframes iniciar { /* Animation for the card */
+    20%, 90% {
+        transform: rotateY(180deg); /* Rotates the card 180 degrees */
+    }
+
+    0%, 100% {
+        transform: rotateY(0deg); /* Returns the card to its original position */
+    }
+}
+
+
